@@ -1,0 +1,39 @@
+artifact_path: file:///Users/nabeegh/Downloads/ML_Project/aqi-mlops-project/mlruns/0/models/m-a5817c99c88446e786f129f76b19bdbb/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.9.6
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+is_signature_from_type_hint: false
+mlflow_version: 3.1.4
+model_id: m-a5817c99c88446e786f129f76b19bdbb
+model_size_bytes: 239654
+model_uuid: m-a5817c99c88446e786f129f76b19bdbb
+prompts: null
+run_id: f65094a6a8214a30a5b45e8da05a5d7f
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "pm2_5", "required": true}, {"type": "double",
+    "name": "pm10", "required": true}, {"type": "double", "name": "no2", "required":
+    true}, {"type": "double", "name": "o3", "required": true}, {"type": "long", "name":
+    "hour", "required": true}, {"type": "long", "name": "day", "required": true},
+    {"type": "long", "name": "month", "required": true}, {"type": "double", "name":
+    "aqi_lag_1", "required": true}, {"type": "double", "name": "aqi_lag_24", "required":
+    true}, {"type": "double", "name": "aqi_roll_24", "required": true}]'
+  outputs: '[{"type": "double", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-12-14 15:18:53.519291'

@@ -1,0 +1,10 @@
+artifact_location: file:///Users/nabeegh/Downloads/ML_Project/aqi-mlops-project/mlruns/0/models/m-a5817c99c88446e786f129f76b19bdbb/artifacts
+creation_timestamp: 1765725533512
+experiment_id: '0'
+last_updated_timestamp: 1765725535964
+model_id: m-a5817c99c88446e786f129f76b19bdbb
+model_type: null
+name: aqi_model
+source_run_id: f65094a6a8214a30a5b45e8da05a5d7f
+status: 2
+status_message: null

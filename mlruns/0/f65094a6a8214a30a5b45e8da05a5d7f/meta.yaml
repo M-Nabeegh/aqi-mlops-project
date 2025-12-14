@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/nabeegh/Downloads/ML_Project/aqi-mlops-project/mlruns/0/f65094a6a8214a30a5b45e8da05a5d7f/artifacts
+end_time: 1765725535966
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f65094a6a8214a30a5b45e8da05a5d7f
+run_name: gaudy-turtle-930
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1765725533443
+status: 3
+tags: []
+user_id: nabeegh

@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/nabeegh/Downloads/ML_Project/aqi-mlops-project/mlruns/0/ee050e65d6bd4fafa47ee97428e5d2de/artifacts
+end_time: 1765725311938
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ee050e65d6bd4fafa47ee97428e5d2de
+run_name: exultant-shrew-614
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1765725309428
+status: 3
+tags: []
+user_id: nabeegh
