@@ -1,28 +1,20 @@
 import pandas as pd
-import os
+import numpy as np
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+df = pd.read_csv("raw_market.csv")
 
-RAW_FILE = os.path.join(BASE_DIR, "raw_aqi.csv")
-FEATURE_FILE = os.path.join(BASE_DIR, "features.csv")
+df["return"] = df["Close"].pct_change()
+df["volatility"] = df["return"].rolling(20).std()
+df["ma_10"] = df["Close"].rolling(10).mean()
+df["ma_50"] = df["Close"].rolling(50).mean()
+df["rsi"] = 100 - (100 / (1 + df["return"].rolling(14).mean()))
 
-def build_features():
-    df = pd.read_csv(RAW_FILE)
+# Risk classification
+df["risk"] = pd.cut(
+    df["volatility"],
+    bins=[-1, 0.01, 0.02, 1],
+    labels=["Low", "Medium", "High"]
+)
 
-    df["timestamp"] = pd.to_datetime(df["timestamp"])
-
-    df["hour"] = df["timestamp"].dt.hour
-    df["day"] = df["timestamp"].dt.day
-    df["month"] = df["timestamp"].dt.month
-
-    df["aqi_lag_1"] = df["aqi"].shift(1)
-    df["aqi_lag_24"] = df["aqi"].shift(24)
-    df["aqi_roll_24"] = df["aqi"].rolling(24).mean()
-
-    df.dropna(inplace=True)
-    df.to_csv(FEATURE_FILE, index=False)
-
-    return df
-
-if __name__ == "__main__":
-    print(build_features().head())
+df.dropna(inplace=True)
+df.to_csv("features.csv", index=False)
