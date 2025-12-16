@@ -9,7 +9,7 @@ df["ma_10"] = df["Close"].rolling(10).mean()
 df["ma_50"] = df["Close"].rolling(50).mean()
 df["rsi"] = 100 - (100 / (1 + df["return"].rolling(14).mean()))
 
-# Risk classification
+
 df["risk"] = pd.cut(
     df["volatility"],
     bins=[-1, 0.01, 0.02, 1],

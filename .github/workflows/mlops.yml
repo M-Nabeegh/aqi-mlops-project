@@ -20,28 +20,20 @@ jobs:
           pip install -r requirements.txt
           pip install pytest httpx
 
-      # === DEBUG STEP: List all files to check folder structure ===
+    
       - name: Debug File Structure
         run: ls -R
-      # ============================================================
 
-      # 1. Fetch Data (Updated path based on your folder)
+
       - name: Fetch Data
         run: python data_ingestion/fetch_data.py
 
-      # 2. Build Features 
-      # ⚠️ IF THIS FAILS: Check if this file is in a folder (e.g., 'features/' or 'data_ingestion/')
-      # If so, change to: python features/build_features.py
       - name: Build Features
         run: python feature_pipeline/build_features.py
 
-      # 3. Train the Model
-      # ⚠️ IF THIS FAILS: Check if this file is in a folder (e.g., 'models/' or 'training/')
-      # If so, change to: python models/train_model.py
       - name: Train Model
         run: python training/train_model.py
 
-      # 4. Run Tests
-      # This usually finds tests automatically, but if they are in a folder, pytest finds them.
+  
       - name: Run Tests
         run: pytest
