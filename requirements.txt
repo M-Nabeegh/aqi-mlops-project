@@ -8,3 +8,7 @@ joblib
 mlflow
 evidently
 pytest
+xgboost
+yfinance
+httpx
+python-multipart

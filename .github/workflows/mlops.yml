@@ -12,10 +12,19 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.10
+          python-version: "3.10"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          # Force install test tools just in case they are missing from requirements.txt
+          pip install pytest httpx
 
-      - name: Run tests
+      # CRITICAL STEP: Train the model so 'model.pkl' exists for the tests
+      - name: Train Model
+        run: python train_model.py
+
+      - name: Run Tests
+        # This runs all files starting with 'test_'
         run: pytest
