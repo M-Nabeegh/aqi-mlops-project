@@ -18,13 +18,25 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
-          # Force install test tools just in case they are missing from requirements.txt
           pip install pytest httpx
 
-      # CRITICAL STEP: Train the model so 'model.pkl' exists for the tests
+      # === DEBUG: This prints the file list so we can see where train_model.py is ===
+      - name: Debug File Structure
+        run: ls -R
+      # =============================================================================
+
+      # 1. Generate Raw Data (Required because GitHub is empty)
+      - name: Fetch Data
+        run: python fetch_data.py
+
+      # 2. Create Features (Required for training)
+      - name: Build Features
+        run: python build_features.py
+
+      # 3. Train the Model
       - name: Train Model
         run: python train_model.py
 
+      # 4. Run Tests
       - name: Run Tests
-        # This runs all files starting with 'test_'
         run: pytest
